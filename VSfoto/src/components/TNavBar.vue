@@ -80,9 +80,10 @@ export default {
         
         clickOutside (e) {
             const el = document.getElementById("dropdown-body") //TODO: vyřešit zavírání dropdown-body pokud kliknu nejdřív dovnitř a poté mimo
-            if(el && !el.contains(e.target))
-            this.mobileNav = false
-            document.removeEventListener("click", this.clickOutside)
+            if(el && !el.contains(e.target)) {
+                this.mobileNav = false
+                document.removeEventListener("click", this.clickOutside)
+            }
         }
     },
     beforeUnmount () {
