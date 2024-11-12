@@ -202,6 +202,7 @@ header {
             background-color: #202020;
             top: 0;
             left: 0;
+            z-index: 999;
 
             a, div, span {
                 text-decoration: none;
