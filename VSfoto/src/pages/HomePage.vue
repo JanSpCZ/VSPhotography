@@ -1,6 +1,6 @@
 <template>
     <div class="slideshow-container">
-        <TSlideshow :images="['img/slidepic1.jpg', 'img/slidepic2.jpg', 'img/slidepic3.jpg']" />
+        <TSlideshow :images="['img/slidepic1.jpg', 'img/slidepic2.jpg', 'img/slidepic3.jpg', 'img/slidepic4.jpg', 'img/slidepic5.jpg']" />
         <div class="about-me-container">
             <div class="about-me-text">
                 <h2>Vítejte!</h2>
@@ -51,7 +51,7 @@ export default {
     align-items: center;
     
     .about-me-text {
-        border: 10px solid colors.$primary;
+        border: 10px solid #fff;
         padding: 2rem;
         background-color: rgba(0, 0, 0, 0);
         width: 20rem;
@@ -65,11 +65,12 @@ export default {
     }
 
     .about-me-photo {
-        background-image: url("img/portraitpic1.png");
+        background-image: url("img/portraitpic.jpg");
         background-size: cover;
         width: 25rem;
         height: 30rem;
         align-self: flex-end;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
         transform: translateX(-3rem);
     }
 }

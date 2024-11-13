@@ -17,7 +17,7 @@
             </ul>
 
             <div class="icon"> <!--hamburger ikona-->
-                <font-awesome-icon :icon="['fas','bars']" @click="toggleMobileNav" v-show="mobile" class="bars-icon" :class="{ 'icon-active': mobileNav}" />
+                <font-awesome-icon :icon="['fas','bars']" @click="toggleMobileNav" v-show="mobile" class="bars-icon" />
             </div>
 
             <transition name="mobile-nav"> <!--navbar při mobilním zobrazení-->
@@ -182,14 +182,14 @@ header {
                 background-color: colors.$primary;
                 cursor: pointer;
                 font-size: 24px;
-                transition: .8s ease all;
+                transition: .2s linear all;
                 padding: .3rem;
                 color: colors.$bg-color;
-            }
-        }
 
-        .icon-active {
-            transform: rotate(180deg); //TODO: tohle vypadá divně
+                &:hover {
+                    color: colors.$secondary;
+                }
+            }
         }
 
         .dropdown-nav { //navbar při mobilním zobrazení
