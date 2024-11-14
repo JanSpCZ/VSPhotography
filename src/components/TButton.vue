@@ -1,7 +1,5 @@
 <template>
     <button @click="onClicked">{{ label }}</button>
-
-
 </template>
 
 
@@ -28,3 +26,27 @@ export default {
 
 
 </script>
+
+<style lang="scss" scoped>
+@use "src/assets/colors";
+
+button {
+    padding: .3rem .7rem;
+    font-size: large;
+    text-transform: uppercase;
+    border: 5px solid colors.$bg-color;
+    background-color: rgba(0, 0, 0, 0);
+    color: colors.$bg-color;
+    transition: all .2s linear;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+
+    &:hover {
+        color: colors.$third;
+        border-color: colors.$third;
+    }
+}
+
+
+
+</style>

@@ -113,7 +113,7 @@ header {
         display: flex;
         justify-content: space-around;
         padding: 1rem 0;
-        background-color: colors.$primary;
+        background-color: colors.$bg-color;
         
         .logo {
             cursor: pointer;
@@ -124,10 +124,10 @@ header {
             justify-content: center;
             flex-direction: column;
             flex-wrap: nowrap;
-            background-color: colors.$primary;
+            background-color: colors.$bg-color;
             font-weight: 100;
             font-size: 2.5rem;
-            color: colors.$bg-color;
+            color: colors.$primary;
             font-family: fonts.$fleur;
         }
         
@@ -136,36 +136,37 @@ header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            background-color: colors.$primary;
+            background-color: colors.$bg-color;
             
             li {
                 font-size: large;
             }
             
             a {
-                background-color: colors.$primary;
+                background-color: colors.$bg-color;
                 display: flex;
                 align-items: center;
                 gap: 2rem;
                 padding: .3em .7em;
                 text-decoration: none;
-                color: colors.$bg-color;
+                color: colors.$primary;
                 transition: color .2s linear;
                 
-                &:hover { color: colors.$secondary;}
+                &:hover { color: colors.$third;}
             }
             
             .selected { //aktivní list item navbaru
-                background-color: colors.$primary;
+                background-color: colors.$bg-color;
                 display: flex;
                 align-items: center;
                 gap: 2rem;
                 padding: .3em .7em;
-                color: colors.$secondary;
+                color: colors.$third;
+                cursor: default;
             }
             
             span {
-                background-color: colors.$primary;
+                background-color: colors.$bg-color;
             }
         }
 
@@ -176,18 +177,18 @@ header {
             top: 0;
             right: 24px;
             height: 100%;
-            background-color: colors.$primary;
+            background-color: colors.$bg-color;
             
             .bars-icon {
-                background-color: colors.$primary;
+                background-color: colors.$bg-color;
                 cursor: pointer;
                 font-size: 24px;
                 transition: .2s linear all;
                 padding: .3rem;
-                color: colors.$bg-color;
+                color: colors.$primary;
 
                 &:hover {
-                    color: colors.$secondary;
+                    color: colors.$third;
                 }
             }
         }
