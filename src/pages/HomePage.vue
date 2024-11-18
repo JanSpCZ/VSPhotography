@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "src/assets/colors";
+@use "src/assets/breakpoints";
 
 .slideshow-container {
     position: relative;
@@ -55,13 +56,22 @@ export default {
     justify-content: center;
     align-items: center;
 
+    @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
+            flex-direction: column;
+            padding-top: 5rem;
+        }
+
     .text-btn-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: rgba(0, 0, 0, 0);
         gap: 3rem;
-        
+
+        @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
+            gap: 1rem;
+            }
+
         .about-me-text {
             border: 10px solid colors.$bg-color;
             color: colors.$bg-color;
@@ -70,6 +80,13 @@ export default {
             width: 20rem;
             z-index: 2;
             backdrop-filter: blur(10px);
+            font-size: 17px;
+
+            @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
+            font-size: 12px;
+            padding: 1rem;
+            border: 6px solid colors.$bg-color;
+            }
             
             h2, p {
                 background-color: rgba(0, 0, 0, 0);
@@ -81,11 +98,19 @@ export default {
     .about-me-photo {
         background-image: url("img/portraitpic.jpg");
         background-size: cover;
-        width: 25rem;
-        height: 30rem;
+        width: 23rem;
+        height: 28rem;
         align-self: flex-end;
         box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-        transform: translateX(-3rem);
+        transform: translate(-3rem, -3rem);
+
+        @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
+            transform: translate(0);
+            width: 13rem;
+            height: 18rem;
+            align-self: center;
+            margin: 2rem;
+        }
     }
 }
 </style>

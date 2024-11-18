@@ -1,5 +1,5 @@
 <template>
-    <header :class="{ 'scrolled-nav': scrollPosition }"><!--TODO: vyřešit fixed header a zakrývání obsahu a zmenšení headeru při scrollu-->
+    <header :class="{ 'scrolled-nav': scrolledNav }">
         <nav>
             <div class="logo" @click="$router.push('/')">
                 <h1><span>Fotografka</span>Veronika Slaninová</h1>
@@ -47,7 +47,7 @@ export default {
     },
     data () {
         return {
-            scrollPosition: null,
+            scrolledNav: null,
             mobile: null,
             mobileNav: null,
             windowWidth: null
@@ -56,6 +56,9 @@ export default {
     created() {
         window.addEventListener("resize", this.checkScreen) //kontrola velikosti obrazovky
         this.checkScreen()
+    },
+    mounted() {
+        window.addEventListener("scroll", this.updateScroll)
     },
     methods: {
         toggleMobileNav () {
@@ -84,11 +87,20 @@ export default {
                 this.mobileNav = false
                 document.removeEventListener("click", this.clickOutside)
             }
+        },
+
+        updateScroll() {
+            const scrollPosition = window.scrollY
+            if (scrollPosition > 50) {
+                this.scrolledNav = true
+                return
+            }
+            this.scrolledNav = false
         }
     },
     beforeUnmount () {
+        window.removeEventListener("scroll", this.updateScroll)
         document.removeEventListener("click", this.clickOutside)
-        window.removeEventListener("resize", this.checkScreen)
     }
 }
 
@@ -97,15 +109,16 @@ export default {
 <style lang="scss" scoped>
 @use "src/assets/colors";
 @use "src/assets/fonts";
+@use "src/assets/breakpoints";
 
 
 header {
-    // background-color: rgba(0, 0, 0, 0.8);
-    // z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
     width: 100%;
-    // position: fixed;
-    transition: .5s ease all;
-    // color: #fff;
+    transition: all .4s ease;
     
     nav {
         position: relative;
@@ -113,12 +126,14 @@ header {
         display: flex;
         justify-content: space-around;
         padding: 1rem 0;
+        transition: all .4s ease;
         background-color: colors.$bg-color;
         
         .logo {
             cursor: pointer;
         }
         h1, h1 > span { //fotografka veronika slaninová kinda shi
+            transition: all .4s ease;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -129,6 +144,10 @@ header {
             font-size: 2.5rem;
             color: colors.$primary;
             font-family: fonts.$fleur;
+
+            @media  screen and (max-width: breakpoints.$breakpoint-mobile) {
+                font-size: 2.3rem;
+            }
         }
         
         .navigation { //navbar při klasickém zobrazení
@@ -152,7 +171,10 @@ header {
                 color: colors.$primary;
                 transition: color .2s linear;
                 
-                &:hover { color: colors.$third;}
+                &:hover { 
+                    color: colors.$third;
+                    border-bottom: 2px solid colors.$third;
+                }
             }
             
             .selected { //aktivní list item navbaru
@@ -162,6 +184,7 @@ header {
                 gap: 2rem;
                 padding: .3em .7em;
                 color: colors.$third;
+                border-bottom: 2px solid colors.$third;
                 cursor: default;
             }
             
@@ -240,5 +263,15 @@ header {
     }
 }
 
+.scrolled-nav {
+
+    nav {
+        padding: .3rem 0;
+    }
+
+    h1, h1 > span {
+        font-size: 2rem;
+    }
+}
 
 </style>
