@@ -1,6 +1,6 @@
 <template>
     <div class="slideshow-container">
-        <TSlideshow :images="['img/slidepic1.jpg', 'img/slidepic2.jpg', 'img/slidepic3.jpg', 'img/slidepic4.jpg', 'img/slidepic5.jpg']" />
+        <TSlideshow :images="['img/slidepic1.jpg', 'img/slidepic2.jpg', 'img/slidepic3.jpg', 'img/slidepic4.jpg', 'img/slidepic5.jpg', 'img/slidepic6.jpg']" />
         <div class="about-me-container">
             <div class="text-btn-container">
                 <div class="about-me-text">
@@ -69,8 +69,8 @@ export default {
         gap: 3rem;
 
         @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
-            gap: 1rem;
-            }
+            gap: 2rem;
+        }
 
         .about-me-text {
             border: 10px solid colors.$bg-color;
@@ -81,6 +81,7 @@ export default {
             z-index: 2;
             backdrop-filter: blur(10px);
             font-size: 17px;
+            border-radius: 5px;
 
             @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
             font-size: 12px;
@@ -98,16 +99,18 @@ export default {
     .about-me-photo {
         background-image: url("img/portraitpic.jpg");
         background-size: cover;
+        background-position-y: bottom;
         width: 23rem;
         height: 28rem;
         align-self: flex-end;
         box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
         transform: translate(-3rem, -3rem);
+        border-radius: 5px;
 
         @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
             transform: translate(0);
-            width: 13rem;
-            height: 18rem;
+            width: 15rem;
+            height: 20rem;
             align-self: center;
             margin: 2rem;
         }

@@ -40,6 +40,7 @@ button {
     transition: all .2s linear;
     backdrop-filter: blur(10px);
     cursor: pointer;
+    border-radius: 5px;
 
     &:hover {
         color: colors.$third;

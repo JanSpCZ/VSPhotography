@@ -98,6 +98,12 @@ export default {
             this.scrolledNav = false
         }
     },
+    watch: {
+        $route() {
+            this.mobileNav = false
+            document.removeEventListener("click", this.clickOutside)
+        }
+    },
     beforeUnmount () {
         window.removeEventListener("scroll", this.updateScroll)
         document.removeEventListener("click", this.clickOutside)
@@ -126,14 +132,14 @@ header {
         display: flex;
         justify-content: space-around;
         padding: 1rem 0;
-        transition: all .4s ease;
+        transition: all .3s ease;
         background-color: colors.$bg-color;
         
         .logo {
             cursor: pointer;
         }
         h1, h1 > span { //fotografka veronika slaninová kinda shi
-            transition: all .4s ease;
+            transition: all .3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
