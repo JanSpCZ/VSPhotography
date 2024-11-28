@@ -84,7 +84,7 @@ export default {
             border-radius: 5px;
 
             @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
-            font-size: 12px;
+            font-size: 14px;
             padding: 1rem;
             border: 6px solid colors.$bg-color;
             }

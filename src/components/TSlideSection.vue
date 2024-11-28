@@ -5,7 +5,7 @@
             <section class="box slide">
                 <div class="slide-content" @click="this.$router.push('/cenik')">
                     <div class="img-container">
-                        <img src="/img/wedding1.webp" alt="wedding" loading="lazy">
+                        <img src="/img/wedding1.webp" alt="wedding">
                     </div>
                     <h3>Svatební focení</h3>
                     <p>Svatební den je plný emocí od lásky, smíchu, ale i nějakého toho zmatku - a já jsem tu, abych to všechno zachytila. Od dojemných okamžiků při Vašem "ANO" až po taneční kreace toho jednoho strýčka na parketu. Nechte mě vytvořit fotky, které Vám budou navždy připomínat, jak jedinečný Váš den byl.</p>
@@ -15,7 +15,7 @@
             <section class="box slide">
                 <div class="slide-content" @click="this.$router.push('/cenik')">
                     <div class="img-container">
-                        <img src="/img/couple1.webp" alt="couple" loading="lazy">
+                        <img src="/img/couple1.webp" alt="couple">
                     </div>
                     <h3>Párové focení</h3>
                     <p>Chcete světu ukázat, že je Vám spolu krásně a zároveň si udělat vzpomínku, kterou si můžete zarámovat a pověsit do obýváku? Dejte mi vědět a udělám Vám fotky tak sladké, že se z nich Vašim přátelům budou kazit zuby.</p>
@@ -25,7 +25,7 @@
             <section class="box slide">
                 <div class="slide-content" @click="this.$router.push('/cenik')">
                     <div class="img-container">
-                        <img src="/img/nature1.webp" alt="nature" loading="lazy">
+                        <img src="/img/nature1.webp" alt="nature">
                     </div>
                     <h3>Focení v přírodě</h3>
                     <p>Není nic lepšího než se ztratit v přírodě a nechat všechny starosti za sebou. Ať už se jedná o les, louku nebo pláž, příroda poskytuje perfektní kulisu pro přirozené, autentické fotky. Bez stresu, bez složitých póz - prostě vy, příroda a chvíle, které stojí za to zachytit. A věřte mi, slunce, stromy a trochu čerstvého vzduchu udělají své kouzlo.</p>
@@ -35,7 +35,7 @@
             <section class="box slide">
                 <div class="slide-content" @click="this.$router.push('/cenik')">
                     <div class="img-container">
-                        <img src="/img/janek1.webp" alt="pregnant" loading="lazy">
+                        <img src="/img/janek1.webp" alt="pregnant">
                     </div>
                     <h3>Těhotenské focení</h3>
                     <p>Těhotenství je jedním z nejkrásnějších období v životě, a zaslouží si být zachyceno v celé své kráse. Ať už jde o jemné portréty nebo záběry, které ukážou vaši radost a očekávání, tyto okamžiky si zaslouží být navždy v paměti. Pojďme společně zachytit, jak roste nejen vaše bříško, ale i láska k vašemu malému zázraku.</p>
@@ -99,15 +99,16 @@ section {
 
 .slide {
     opacity: 0;
-    transition: all .6s ease-out;
+    transition: all .5s ease-out;
     will-change: opacity, transform;
     transform: translateY(100px);
+    
+    &.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.slide.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
 
 
 
@@ -196,7 +197,7 @@ section {
                 p {
                     background-color: colors.$primary;
                     color: colors.$bg-color;
-                    font-size: small;
+                    font-size: 14px;
                     text-align: justify;
                 }
             }

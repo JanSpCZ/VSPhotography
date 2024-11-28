@@ -82,7 +82,7 @@ export default {
         },
         
         clickOutside (e) {
-            const el = document.getElementById("dropdown-body") //TODO: vyřešit zavírání dropdown-body pokud kliknu nejdřív dovnitř a poté mimo
+            const el = document.getElementById("dropdown-body")
             if(el && !el.contains(e.target)) {
                 this.mobileNav = false
                 document.removeEventListener("click", this.clickOutside)
@@ -124,7 +124,7 @@ header {
     left: 0;
     z-index: 99;
     width: 100%;
-    transition: all .4s ease;
+    transition: all .1s ease;
     
     nav {
         position: relative;
@@ -132,7 +132,7 @@ header {
         display: flex;
         justify-content: space-around;
         padding: 1rem 0;
-        transition: all .3s ease;
+        transition: all .1s ease;
         background-color: colors.$bg-color;
         
         .logo {
