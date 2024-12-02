@@ -99,7 +99,7 @@ section {
 
 .slide {
     opacity: 0;
-    transition: all .5s ease-out;
+    transition: all .6s ease-out;
     will-change: opacity, transform;
     transform: translateY(100px);
     

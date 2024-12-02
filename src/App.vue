@@ -3,11 +3,14 @@
     <TNavBar :links="links" />
     
     <RouterView />
+
+    <TFooter />
   </div>
 </template>
 
 <script>
 import TNavBar from "@/components/TNavBar.vue"
+import TFooter from "./components/TFooter.vue";
 
 
 export default {
@@ -23,7 +26,7 @@ export default {
       ]
     }
   },
-  components: { TNavBar }
+  components: { TNavBar, TFooter }
 }
 
 </script>
