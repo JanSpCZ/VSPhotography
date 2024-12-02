@@ -118,8 +118,8 @@ section {
     align-items: center;
     flex-direction: column;
     background-color: colors.$primary;
-    margin: 2rem 1rem;
-    padding: 1rem 1rem;
+    margin: 2rem;
+    padding: 3rem 1rem;
     gap: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 15px 5px #00000062;
@@ -129,7 +129,6 @@ section {
         color: colors.$bg-color;
         font-weight: 300;
         font-size: xx-large;
-        margin-top: 5vh;
 
         @media  screen and (max-width: breakpoints.$breakpoint-mobile) {
                 font-size: x-large;

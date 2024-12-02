@@ -1,5 +1,5 @@
 <template>
-    <button @click="onClicked">{{ label }}</button>
+    <button @click="onClicked" :class="buttonClass">{{ label }}</button>
 </template>
 
 
@@ -15,6 +15,15 @@ export default {
         emitEvent: {
             type: String,
             required: true
+        },
+        color: {
+            type: String,
+            default: "white"
+        }
+    },
+    computed: {
+        buttonClass() {
+            return this.color === "brown" ? "brown-button" : "white-button"
         }
     },
     methods: {
@@ -34,17 +43,31 @@ button {
     padding: .3rem .7rem;
     font-size: large;
     text-transform: uppercase;
-    border: 5px solid colors.$bg-color;
+    border: 5px solid transparent;
     background-color: rgba(0, 0, 0, 0);
-    color: colors.$bg-color;
     transition: all .2s linear;
     backdrop-filter: blur(10px);
     cursor: pointer;
     border-radius: 5px;
 
-    &:hover {
-        color: colors.$third;
-        border-color: colors.$third;
+    &.white-button {
+        color: colors.$bg-color;
+        border-color: colors.$bg-color;
+        
+        &:hover {
+            color: colors.$third;
+            border-color: colors.$third;
+        }
+    }
+
+    &.brown-button {
+        color: colors.$primary;
+        border-color: colors.$primary;
+
+        &:hover {
+            color: colors.$third;
+            border-color: colors.$third;
+        }
     }
 }
 

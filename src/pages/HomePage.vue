@@ -16,6 +16,8 @@
     </div>
 
     <TSlideSection />
+
+    <TLocation />
 </template>
 
 <script>
@@ -23,6 +25,7 @@
 import TButton from '@/components/TButton.vue';
 import TSlideshow from '@/components/TSlideshow.vue';
 import TSlideSection from '../components/TSlideSection.vue';
+import TLocation from '@/components/TLocation.vue';
 
 export default {
     name: "HomePage",
@@ -31,7 +34,7 @@ export default {
             this.$router.push("/kontakt")
         }
     },
-    components: { TSlideshow, TButton, TSlideSection }
+    components: { TSlideshow, TButton, TSlideSection, TLocation }
 }
 
 
