@@ -124,6 +124,10 @@ section {
     border-radius: 10px;
     box-shadow: 0 0 15px 5px #00000062;
 
+    @media  screen and (max-width: breakpoints.$breakpoint-mobile) {
+        margin: 1rem;
+        }
+
     h2 {
         background-color: colors.$primary;
         color: colors.$bg-color;
@@ -131,7 +135,7 @@ section {
         font-size: xx-large;
 
         @media  screen and (max-width: breakpoints.$breakpoint-mobile) {
-                font-size: x-large;
+            font-size: x-large;
         }
     }
 
