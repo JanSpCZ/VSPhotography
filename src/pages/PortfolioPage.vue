@@ -1,120 +1,192 @@
 <template>
-    <h2>Hello portfolio!</h2>
-    <div class="wrapper">
-        <div class="gallery">
-            <div v-for="(image, index) in gallery" :key="index" class="gallery__image" @click="showPreview(index)">
-                <span>
-                    <img :src="image" alt="Portfolio" />
-                </span>
-            </div>
-        </div>
+  <h2 :class="{'animate-slide-in' : animate}">MÉ PORTFOLIO</h2>
+  <div class="wrapper">
+    <div class="gallery">
+      <div v-for="(image, index) in gallery" :key="index" class="gallery__image" @click="showPreview(index)">
+        <img :src="image" alt="Portfolio" />
+      </div>
     </div>
-
-    <!-- Preview Box -->
-    <div v-if="isPreviewVisible" class="preview-box-wrapper">
-        <div class="preview-box preview-box--visible">
-            <div class="preview-box__details">
-                <div class="preview-box__title">
-                    <p>Image</p>
-                    <p class="preview-box__current-img">{{ currentIndex + 1 }}</p>
-                    <p>of</p>
-                    <p class="preview-box__total-img">{{ gallery.length }}</p>
-                </div>
-                <div class="preview-box__icon" @click="closePreview">✖</div>
-            </div>
-            <div class="preview-box__image-box">
-                <button class="preview-box__slide preview-box__slide--prev" @click="prevImage" v-if="currentIndex > 0">
-                    ‹
-                </button>
-                <img :src="currentImage" alt="Portfolio current" />
-                <button class="preview-box__slide preview-box__slide--next" @click="nextImage" v-if="currentIndex < gallery.length - 1">
-                    ›
-                </button>
-            </div>
-        </div>
-        <!-- Shadow Overlay -->
-        <div class="shadow" @click="closePreview"></div>
+    <TButton label="VÍCE FOTOGRAFIÍ ZDE" emitEvent="redirectToLink" @redirectToLink="openNewTab()"/>
+  </div>
+  
+  <!-- Preview Box -->
+  <div v-if="isPreviewVisible" class="preview-box-wrapper">
+    <div class="preview-box preview-box--visible">
+      <div class="preview-box__details">
+        <div class="preview-box__icon" @click="closePreview">✖</div>
+      </div>
+      <div class="preview-box__image-box">
+        <button class="preview-box__slide btn-prev" @click="prevImage" v-if="currentIndex > 0">
+          <font-awesome-icon class="fa-icon" :icon="['fas', 'angles-left']" />
+        </button>
+        <img :src="currentImage" alt="Portfolio current" />
+        <button class="preview-box__slide btn-next" @click="nextImage" v-if="currentIndex < gallery.length - 1">
+          <font-awesome-icon class="fa-icon" :icon="['fas', 'angles-right']" />
+        </button>
+      </div>
     </div>
+    <!-- Shadow Overlay -->
+    <div class="shadow" @click="closePreview"></div>
+  </div>
 </template>
 
 <script>
+import TButton from '@/components/TButton.vue';
+
 
 export default {
-    name: "Portfolio",
-    data() {
-        return {
-            gallery: [
-                "/img/cow.webp",
-                "/img/mountains.webp",
-                "/img/nature1.webp",
-                "/img/wedding1.webp",
-                "/img/janek1.webp",
-                "/img/couple1.webp"
-            ],
-            currentIndex: 0,
-            isPreviewVisible: false,
-        }
-    },
-    computed: {
-        currentImage() {
-        return this.gallery[this.currentIndex]
-        },
-    },
-    methods: {
-        showPreview(index) {
-            this.currentIndex = index
-            this.isPreviewVisible = true
-            document.body.style.overflow = "hidden"
-        },
-
-        closePreview() {
-            this.isPreviewVisible = false
-            document.body.style.overflow = "scroll"
-        },
-
-        prevImage() {
-            if (this.currentIndex > 0) {
-                this.currentIndex--
-            }
-        },
-
-        nextImage() {
-            if (this.currentIndex < this.gallery.length - 1) {
-                this.currentIndex++
-            }
-        }
+  name: "Portfolio",
+  data() {
+      return {
+      gallery: [
+        "/img/slidepic1.webp",
+        "/img/mountains.webp",
+        "/img/nature1.webp",
+        "/img/wedding1.webp",
+        "/img/janek1.webp",
+        "/img/couple1.webp",
+        "/img/terka1.webp",
+        "/img/city1.webp"
+      ],
+      currentIndex: 0,
+      isPreviewVisible: false,
+      animate: false
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.animate = true
+    }, 200)
+  },
+  computed: {
+    currentImage() {
+      return this.gallery[this.currentIndex]
+    },
+  },
+  methods: {
+    showPreview(index) {
+      this.currentIndex = index
+      this.isPreviewVisible = true
+      document.body.style.overflow = "hidden"
+    },
+    
+    closePreview() {
+      this.isPreviewVisible = false
+      document.body.style.overflow = "scroll"
+    },
+    
+    prevImage() {
+      if (this.currentIndex > 0) {
+        this.currentIndex--
+      }
+    },
+    
+    nextImage() {
+      if (this.currentIndex < this.gallery.length - 1) {
+        this.currentIndex++
+      }
+    },
+
+    openNewTab() {
+      window.open("https://www.seznam.cz", "_blank")
+    }
+  },
+  components: { TButton }
 }
 
-
+    
 </script>
 
 <style lang="scss" scoped>
-.wrapper {
-  max-width: 100%;
-  margin: 0 auto;
+@use "src/assets/colors";
+@use "src/assets/breakpoints";
 
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 1s ease-out forwards;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: xx-large;
+  color: colors.$primary;
+  padding: 1rem 2rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+  
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: colors.$primary;
+  margin: 2rem;
+  padding: 3rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 5px #00000062;
+
+  @media  screen and (max-width: breakpoints.$breakpoint-dropdown) {
+    margin: 1rem;
+  }
+  
   .gallery {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: colors.$primary;
     flex-wrap: wrap;
+    gap: 10px;
+
+    @media screen and (max-width: 1170px) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    @media screen and (max-width: 522px) {
+      padding: 1rem;
+    }
 
     &__image {
-      padding: 7px;
-      width: calc(100% / 3);
+      display: flex;
+      width: 300px;
+      height: 400px;
+      overflow: hidden;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      cursor: pointer;
 
-      span {
-        display: flex;
+      @media screen and (max-width: 1170px) {
+        width: 200px;
+        height: 260px;
+      }
+
+      @media screen and (max-width: 522px) {
         width: 100%;
-        overflow: hidden;
-
-        img {
-          width: 100%;
-          vertical-align: middle;
-          transition: transform 0.3s ease;
-
-          &:hover {
-            transform: scale(1.1);
-          }
+        height: auto;
+      }
+      
+      img {
+        width: 100%;
+        height: auto;
+        transition: all .2s linear;
+        
+        &:hover {
+          transform: scale(1.1);
+          filter: brightness(75%);
         }
       }
     }
@@ -131,82 +203,89 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  background: rgba(0, 0, 0, 0.1);
 
   .preview-box {
-    position: relative;
-    background: #fff;
-    max-width: 700px;
+    max-width: 500px;
     width: 100%;
-    border-radius: 3px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
-    pointer-events: none;
-    transform: translate(-50%, -50%) scale(0.9);
     transition: all 0.3s ease;
 
+    @media screen and (max-width: 522px) {
+      max-width: 90%;
+    }
+    
     &--visible {
       opacity: 1;
       pointer-events: auto;
-      transform: scale(1);
     }
-
+    
     &__details {
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 12px 15px 12px 10px;
+      justify-content: flex-end;
+      padding: 1rem;
+    }
 
-      &__title {
-        display: flex;
-        font-size: 18px;
-        font-weight: 400;
-
-        p {
-          margin: 0 5px;
-
-          &.preview-box__current-img {
-            font-weight: 500;
-          }
-        }
-      }
-
-      &__icon {
-        color: #007bff;
-        font-size: 20px;
-        cursor: pointer;
-      }
+    &__icon {
+      font-size: 20px;
+      cursor: pointer;
+      padding: .3rem;
     }
 
     &__image-box {
       display: flex;
+      justify-content: center;
+      gap: 1rem;
       width: 100%;
       position: relative;
 
-      &__slide {
+      button {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
-        color: #fff;
-        font-size: 30px;
+        font-size: 50px;
+        padding: 20px;
         cursor: pointer;
-        height: 50px;
-        width: 60px;
-        line-height: 50px;
-        text-align: center;
-        border-radius: 3px;
+        border: none;
+        background: rgba(0, 0, 0, 0);
+        color: colors.$bg-color;
 
-        &--prev {
-          left: 0;
+        .fa-icon {
+          background: rgba(0, 0, 0, 0);
+        }
+      }
+
+      .btn-prev {
+        transform: translateX(-300px);
+
+        @media screen and (max-width: breakpoints.$breakpoint-tablet) {
+          transform: translateX(-200px);
+          z-index: 1010;
         }
 
-        &--next {
-          right: 0;
+        @media screen and (max-width: breakpoints.$breakpoint-mobile) {
+          transform: translateX(-140px);
+          z-index: 1010;
+        }
+      }
+
+      .btn-next {
+        transform: translateX(300px);
+
+        @media screen and (max-width: breakpoints.$breakpoint-tablet) {
+          transform: translateX(200px);
+          z-index: 1010;
+        }
+
+        @media screen and (max-width: breakpoints.$breakpoint-mobile) {
+          transform: translateX(140px);
+          z-index: 1010;
         }
       }
 
       img {
         width: 100%;
-        border-radius: 0 0 3px 3px;
       }
     }
   }
@@ -218,25 +297,8 @@ export default {
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 999;
+  z-index: -999;
   display: block;
-  background: rgba(0, 0, 0, 0.45);
-}
-
-@media (max-width: 1000px) {
-  .gallery {
-    &__image {
-      width: calc(100% / 2);
-    }
-  }
-}
-
-@media (max-width: 600px) {
-  .gallery {
-    &__image {
-      width: 100%;
-      padding: 4px;
-    }
-  }
+  background: rgba(0, 0, 0, 0.8);
 }
 </style>

@@ -84,7 +84,6 @@ export default {
             z-index: 2;
             backdrop-filter: blur(10px);
             font-size: 17px;
-            border-radius: 5px;
 
             @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
             font-size: 14px;

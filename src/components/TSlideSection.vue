@@ -126,7 +126,7 @@ section {
 
     @media  screen and (max-width: breakpoints.$breakpoint-mobile) {
         margin: 1rem;
-        }
+    }
 
     h2 {
         background-color: colors.$primary;

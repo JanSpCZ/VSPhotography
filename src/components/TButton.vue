@@ -48,7 +48,6 @@ button {
     transition: all .2s linear;
     backdrop-filter: blur(10px);
     cursor: pointer;
-    border-radius: 5px;
 
     &.white-button {
         color: colors.$bg-color;
