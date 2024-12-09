@@ -206,7 +206,8 @@ h2 {
   background: rgba(0, 0, 0, 0.1);
 
   .preview-box {
-    max-width: 500px;
+    position: relative;
+    max-width: 450px;
     width: 100%;
     opacity: 0;
     transition: all 0.3s ease;
@@ -221,17 +222,23 @@ h2 {
     }
     
     &__details {
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+      position: absolute;
+      top: 0;
+      right: 0;
       display: flex;
       align-items: center;
+      z-index: 1111;
       justify-content: flex-end;
       padding: 1rem;
+      background: rgba(0, 0, 0, 0);
     }
 
     &__icon {
-      font-size: 20px;
+      font-size: 30px;
+      color: #fff;
       cursor: pointer;
       padding: .3rem;
+      background: rgba(0, 0, 0, 0);
     }
 
     &__image-box {
@@ -250,6 +257,12 @@ h2 {
         border: none;
         background: rgba(0, 0, 0, 0);
         color: colors.$bg-color;
+        opacity: .7;
+        transition: opacity .2s linear;
+
+        &:hover {
+          opacity: 1;
+        }
 
         .fa-icon {
           background: rgba(0, 0, 0, 0);
@@ -260,13 +273,10 @@ h2 {
         transform: translateX(-300px);
 
         @media screen and (max-width: breakpoints.$breakpoint-tablet) {
-          transform: translateX(-200px);
+          transform: translateX(0);
+          left: 0;
           z-index: 1010;
-        }
-
-        @media screen and (max-width: breakpoints.$breakpoint-mobile) {
-          transform: translateX(-140px);
-          z-index: 1010;
+          font-size: 30px;
         }
       }
 
@@ -274,13 +284,10 @@ h2 {
         transform: translateX(300px);
 
         @media screen and (max-width: breakpoints.$breakpoint-tablet) {
-          transform: translateX(200px);
+          transform: translateX(0);
+          right: 0;
           z-index: 1010;
-        }
-
-        @media screen and (max-width: breakpoints.$breakpoint-mobile) {
-          transform: translateX(140px);
-          z-index: 1010;
+          font-size: 30px;
         }
       }
 
