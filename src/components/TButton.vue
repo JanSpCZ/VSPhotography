@@ -45,7 +45,7 @@ button {
     text-transform: uppercase;
     border: 5px solid transparent;
     background-color: rgba(0, 0, 0, 0);
-    transition: all .2s linear;
+    transition: all .3s ease;
     backdrop-filter: blur(10px);
     cursor: pointer;
 
@@ -54,8 +54,8 @@ button {
         border-color: colors.$bg-color;
         
         &:hover {
-            color: colors.$third;
-            border-color: colors.$third;
+            color: colors.$secondary;
+            border-color: colors.$secondary;
         }
     }
 

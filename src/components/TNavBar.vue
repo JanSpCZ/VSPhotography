@@ -148,7 +148,7 @@ header {
             background-color: colors.$bg-color;
             font-weight: 100;
             font-size: 2.5rem;
-            color: colors.$primary;
+            color: colors.$third;
             font-family: fonts.$fleur;
 
             @media  screen and (max-width: breakpoints.$breakpoint-mobile) {
@@ -174,12 +174,12 @@ header {
                 gap: 2rem;
                 padding: .3em .7em;
                 text-decoration: none;
-                color: colors.$primary;
+                color: colors.$third;
                 transition: color .2s linear;
                 
                 &:hover { 
-                    color: colors.$third;
-                    border-bottom: 2px solid colors.$third;
+                    color: colors.$primary;
+                    border-bottom: 2px solid colors.$primary;
                 }
             }
             
@@ -190,7 +190,7 @@ header {
                 gap: 2rem;
                 padding: .3em .7em;
                 color: colors.$third;
-                border-bottom: 2px solid colors.$third;
+                border-bottom: 2px solid colors.$primary;
                 cursor: default;
             }
             
@@ -214,10 +214,10 @@ header {
                 font-size: 24px;
                 transition: .2s linear all;
                 padding: .3rem;
-                color: colors.$primary;
+                color: colors.$third;
 
                 &:hover {
-                    color: colors.$third;
+                    color: colors.$primary;
                 }
             }
         }
@@ -239,6 +239,7 @@ header {
                 color: #fff;
                 padding: 0 .5rem;
                 background-color: #202020;
+                transition: all .3s ease;
 
                 &:hover { color: colors.$secondary}
             }

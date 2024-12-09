@@ -106,7 +106,7 @@ export default {
         h2 {
             font-weight: 300;
             font-size: xx-large;
-            color: colors.$primary;
+            color: colors.$third;
             align-self: flex-start;
             text-transform: uppercase;
 

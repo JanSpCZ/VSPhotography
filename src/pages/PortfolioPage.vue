@@ -3,7 +3,7 @@
   <div class="wrapper">
     <div class="gallery">
       <div v-for="(image, index) in gallery" :key="index" class="gallery__image" @click="showPreview(index)">
-        <img :src="image" alt="Portfolio" />
+        <img :src="image" alt="Portfolio" loading="lazy"/>
       </div>
     </div>
     <TButton label="VÍCE FOTOGRAFIÍ ZDE" emitEvent="redirectToLink" @redirectToLink="openNewTab()"/>
@@ -56,7 +56,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.animate = true
-    }, 200)
+    }, 100)
   },
   computed: {
     currentImage() {
@@ -103,7 +103,7 @@ export default {
 
 @keyframes slide-in {
   from {
-    transform: translateX(-100%);
+    transform: translateX(-100px);
     opacity: 0;
   }
   to {
@@ -119,7 +119,7 @@ export default {
 h2 {
   font-weight: 400;
   font-size: xx-large;
-  color: colors.$primary;
+  color: colors.$third;
   padding: 1rem 2rem;
   text-align: center;
   opacity: 0;
