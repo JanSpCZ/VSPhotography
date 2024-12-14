@@ -13,34 +13,34 @@
                 <TButton label="PODROBNOSTI" emitEvent="loadPage" @loadPage="handleLoadPage" />
             </section>
             <section class="box slide">
-                <div class="slide-content" @click="this.$router.push('/cenik')">
+                <div class="slide-content" @click="this.$router.push({ path: '/cenik', hash: '#parove-foceni'})">
                     <div class="img-container">
                         <img src="/img/couple1.webp" alt="couple">
                     </div>
                     <h3>Párové focení</h3>
                     <p>Chcete světu ukázat, že je Vám spolu krásně a zároveň si udělat vzpomínku, kterou si můžete zarámovat a pověsit do obýváku? Dejte mi vědět a udělám Vám fotky tak sladké, že se z nich Vašim přátelům budou kazit zuby.</p>
                 </div>
-                <TButton label="PODROBNOSTI" emitEvent="loadPage" @loadPage="handleLoadPage" />
+                <TButton label="PODROBNOSTI" emitEvent="loadPage" @loadPage="this.$router.push({ path: '/cenik', hash: '#parove-foceni'})" />
             </section>
             <section class="box slide">
-                <div class="slide-content" @click="this.$router.push('/cenik')">
+                <div class="slide-content" @click="this.$router.push({ path: '/cenik', hash: '#prirodni-foceni'})">
                     <div class="img-container">
                         <img src="/img/nature1.webp" alt="nature">
                     </div>
                     <h3>Focení v přírodě</h3>
                     <p>Není nic lepšího než se ztratit v přírodě a nechat všechny starosti za sebou. Ať už se jedná o les, louku nebo pláž, příroda poskytuje perfektní kulisu pro přirozené, autentické fotky. Bez stresu, bez složitých póz - prostě vy, příroda a chvíle, které stojí za to zachytit. A věřte mi, slunce, stromy a trochu čerstvého vzduchu udělají své kouzlo.</p>
                 </div>
-                <TButton label="PODROBNOSTI" emitEvent="loadPage" @loadPage="handleLoadPage" />
+                <TButton label="PODROBNOSTI" emitEvent="loadPage" @loadPage="this.$router.push({ path: '/cenik', hash: '#prirodni-foceni'})" />
             </section>
             <section class="box slide">
-                <div class="slide-content" @click="this.$router.push('/cenik')">
+                <div class="slide-content" @click="this.$router.push({ path: '/cenik', hash: '#tehotenske-foceni'})">
                     <div class="img-container">
                         <img src="/img/janek1.webp" alt="pregnant">
                     </div>
                     <h3>Těhotenské focení</h3>
                     <p>Těhotenství je jedním z nejkrásnějších období v životě, a zaslouží si být zachyceno v celé své kráse. Ať už jde o jemné portréty nebo záběry, které ukážou vaši radost a očekávání, tyto okamžiky si zaslouží být navždy v paměti. Pojďme společně zachytit, jak roste nejen vaše bříško, ale i láska k vašemu malému zázraku.</p>
                 </div>
-                <TButton label="PODROBNOSTI" emitEvent="loadPage" @loadPage="handleLoadPage" />
+                <TButton label="PODROBNOSTI" emitEvent="loadPage" @loadPage="this.$router.push({ path: '/cenik', hash: '#tehotenske-foceni'})" />
             </section>
         </div>
     </div>

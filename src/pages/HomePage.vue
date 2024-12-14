@@ -61,7 +61,7 @@ export default {
 
     @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
             flex-direction: column;
-            padding-top: 5rem;
+            padding-top: 2rem;
         }
 
     .text-btn-container {
@@ -76,24 +76,26 @@ export default {
         }
 
         .about-me-text {
-            border: 10px solid colors.$bg-color;
-            color: colors.$bg-color;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0);
+            color: #000;
+            padding: 3rem;
+            background-color: rgba(255, 255, 255, 0.75);
             width: 20rem;
             z-index: 2;
-            backdrop-filter: blur(10px);
             font-size: 17px;
 
             @media  screen and (max-width: breakpoints.$breakpoint-tablet) {
             font-size: 14px;
             padding: 1rem;
-            border: 6px solid colors.$bg-color;
             }
-            
-            h2, p {
+
+            h2 {
+                font-weight: 300;
                 background-color: rgba(0, 0, 0, 0);
-                color: #fafafa;
+            }
+
+            p {
+                font-weight: 200;
+                background-color: rgba(0, 0, 0, 0);
             }
         }
     }

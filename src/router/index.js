@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { nextTick } from 'vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,16 @@ const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
+    }
+    if (to.hash) {
+      return new Promise((resolve) => {
+        nextTick(() => {
+          resolve({
+            el: to.hash,
+            behavior: "smooth"
+          })
+        })
+      })
     }
     return { top: 0}
   }
