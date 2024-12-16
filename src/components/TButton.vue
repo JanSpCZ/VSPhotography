@@ -43,7 +43,7 @@ button {
     padding: .3rem .7rem;
     font-size: large;
     text-transform: uppercase;
-    border: 5px solid transparent;
+    border: 2px solid transparent;
     background-color: rgba(0, 0, 0, 0);
     transition: all .3s ease;
     backdrop-filter: blur(10px);

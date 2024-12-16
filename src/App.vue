@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <TNavBar :links="links" />
+  <TNavBar :links="links" />
     
-    <RouterView />
+  <RouterView />
 
-    <TFooter />
-  </div>
+  <TFooter />
 </template>
 
 <script>
