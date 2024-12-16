@@ -1,7 +1,7 @@
 <template>
     <h2 :class="{'animate-slide-in' : animate}">KONTAKT</h2>
     <div class="background-wrapper">
-      <img src="/img/kontakt1.webp" alt="kontakt">
+      <img src="/src/img/kontakt1.webp" alt="kontakt">
       <form id="myForm">
         <h4>Rezervujte si termín focení</h4>
         <label for="fname">Jméno a příjmení:</label>

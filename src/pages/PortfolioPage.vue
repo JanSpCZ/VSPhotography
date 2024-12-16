@@ -39,14 +39,14 @@ export default {
   data() {
       return {
       gallery: [
-        "/img/slidepic1.webp",
-        "/img/mountains.webp",
-        "/img/nature1.webp",
-        "/img/wedding1.webp",
-        "/img/janek1.webp",
-        "/img/couple1.webp",
-        "/img/terka1.webp",
-        "/img/city1.webp"
+        "/src/img/slidepic1.webp",
+        "/src/img/mountains.webp",
+        "/src/img/nature1.webp",
+        "/src/img/wedding1.webp",
+        "/src/img/janek1.webp",
+        "/src/img/couple1.webp",
+        "/src/img/terka1.webp",
+        "/src/img/city1.webp"
       ],
       currentIndex: 0,
       isPreviewVisible: false,
