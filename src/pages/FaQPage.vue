@@ -1,6 +1,6 @@
 <template>
     <div class="background-wrapper">
-        <img src="/src/img/faq.webp" alt="faqpic">
+        <img src="/img/faq.webp" alt="faqpic">
         <div class="header-wrapper">
             <h3>časté dotazy</h3>
             <div class="header-text">

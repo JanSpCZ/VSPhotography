@@ -1,6 +1,6 @@
 <template>
     <div class="slideshow-container">
-        <TSlideshow :images="['/src/img/slidepic1.webp', '/src/img/slidepic2.webp', '/src/img/slidepic3.webp', '/src/img/slidepic4.webp', '/src/img/slidepic5.webp', '/src/img/slidepic6.webp']" />
+        <TSlideshow :images="['/img/slidepic1.webp', '/img/slidepic2.webp', '/img/slidepic3.webp', '/img/slidepic4.webp', '/img/slidepic5.webp', '/img/slidepic6.webp']" />
         <div class="about-me-container">
             <div class="text-btn-container">
                 <div class="about-me-text">
@@ -101,7 +101,7 @@ export default {
     }
         
     .about-me-photo {
-        background-image: url("/src/img/portraitpic.webp");
+        background-image: url("/img/portraitpic.webp");
         background-size: cover;
         background-position-y: bottom;
         width: 23rem;

@@ -90,12 +90,7 @@ export default {
         },
 
         updateScroll() {
-            const scrollPosition = window.scrollY
-            if (scrollPosition > 50) {
-                this.scrolledNav = true
-                return
-            }
-            this.scrolledNav = false
+            this.scrolledNav = window.scrollY > 50
         }
     },
     watch: {
@@ -124,15 +119,17 @@ header {
     left: 0;
     z-index: 99;
     width: 100%;
-    transition: all .1s ease;
+    overflow: hidden;
     
     nav {
         position: relative;
         width: 100vw;
+        height: 130px;
         display: flex;
         justify-content: space-around;
+        align-items: center;
         padding: 1rem 0;
-        transition: all .1s ease;
+        transition: all .3s ease;
         background-color: colors.$bg-color;
         
         .logo {
@@ -145,14 +142,15 @@ header {
             justify-content: center;
             flex-direction: column;
             flex-wrap: nowrap;
-            background-color: colors.$bg-color;
+            background-color: rgba(0, 0, 0, 0);
             font-weight: 100;
             font-size: 2.5rem;
             color: colors.$third;
             font-family: fonts.$fleur;
+            line-height: 1.2;
 
             @media  screen and (max-width: breakpoints.$breakpoint-mobile) {
-                font-size: 2.3rem;
+                font-size: 2.1rem;
             }
         }
         
@@ -273,11 +271,11 @@ header {
 .scrolled-nav {
 
     nav {
-        padding: .3rem 0;
+        height: 100px;
     }
 
     h1, h1 > span {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }
 

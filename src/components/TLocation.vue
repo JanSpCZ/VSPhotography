@@ -1,7 +1,7 @@
 <template>
 <div class="location-container">
     <div class="location-left">
-        <img src="/src/img/hk-kraj.png" alt="Kralovehradecky kraj">
+        <img src="/img/hk-kraj.png" alt="Kralovehradecky kraj">
     </div>
     <div class="location-right slide">
         <h2>Kde mě najdete?</h2>

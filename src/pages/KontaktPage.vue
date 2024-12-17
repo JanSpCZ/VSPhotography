@@ -1,23 +1,23 @@
 <template>
     <h2 :class="{'animate-slide-in' : animate}">KONTAKT</h2>
     <div class="background-wrapper">
-      <img src="/src/img/kontakt1.webp" alt="kontakt">
-      <form id="myForm">
+      <img src="/img/kontakt1.webp" alt="kontakt">
+      <form id="myForm" @submit.prevent="submitForm">
         <h4>Rezervujte si termín focení</h4>
         <label for="fname">Jméno a příjmení:</label>
-        <input type="text" id="fname" name="fname" autocomplete="off" required>
+        <input type="text" v-model="formData.fname" id="fname" name="fname" autocomplete="off" required>
         <label for="fnumber">Telefonní číslo:</label>
-        <input type="text" id="fnumber" name="fnumber" autocomplete="off" required>
+        <input type="text" v-model="formData.fnumber" id="fnumber" name="fnumber" autocomplete="off" required>
         <label for="fmail">E-mail:</label>
-        <input type="email" id="fmail" name="fmail" autocomplete="off" required>
+        <input type="email" v-model="formData.fmail" id="fmail" name="fmail" autocomplete="off" required>
         <label for="fmessage">Zpráva:</label>
-        <textarea rows="7" name="fmessage" id="fmessage" autocomplete="off" required></textarea>
+        <textarea rows="7" v-model="formData.fmessage" name="fmessage" id="fmessage" autocomplete="off" required></textarea>
         <!-- Skryté pole pro CSRF token -->
         <input type="hidden" v-model="csrfToken" />
         
         <!-- Google reCAPTCHA widget -->
         <div class="g-recaptcha" :data-sitekey="recaptchaSiteKey"></div>
-        <input type="submit">
+        <input type="submit" value="Odeslat">
       </form>
     </div>
 </template>
@@ -220,6 +220,9 @@ h2 {
     input {
       background-color: rgba(255, 255, 255, 0);
       outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
       border: none;
       border-bottom: 1px solid black;
       padding: .5rem 0;
@@ -237,6 +240,7 @@ h2 {
 
     input[type=submit] {
       border: 1px solid black;
+      color: #000;
       cursor: pointer;
       transition: all .3s ease;
 
@@ -249,10 +253,14 @@ h2 {
     textarea {
       background-color: rgba(255, 255, 255, 0);
       outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
       border: none;
       border-bottom: 1px solid black;
       margin-bottom: 30px;
       font-size: 17px;
+      resize: none;
       transition: border-color .3s ease;
 
       &:focus {
